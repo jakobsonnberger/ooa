@@ -1,0 +1,9 @@
+#ooa number of female oath swearers with status containing 'wife', 'spinster' or 'widow')
+prefix t: <http://www.tei-c.org/ns/1.0/>
+prefix ooa: <http://gams.uni-graz.at/o:ooa.ontology/#>
+SELECT (COUNT(?s) as ?count) WHERE {
+	?s a ooa:OathSwearer;
+      t:sex 'female';
+      t:socecStatus ?status;     
+	FILTER REGEX(?status, "(wife|spinster|widow)", "i")
+}

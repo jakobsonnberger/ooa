@@ -1,0 +1,8 @@
+#ooa number of oath swearers by gender
+prefix t: <http://www.tei-c.org/ns/1.0/>
+prefix ooa: <http://gams.uni-graz.at/o:ooa.ontology/#>
+SELECT ?gender (COUNT(?s) AS ?count) WHERE {
+	?s a ooa:OathSwearer;
+        t:sex ?gender.
+}
+GROUP BY ?gender
